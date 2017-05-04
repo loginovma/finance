@@ -6,7 +6,7 @@ class Account
 {
     private:
 	    char accno[30];
-    	Bank* bank = NULL;
+    	Bank* bank;
 	
     public:
         const char * getNumber();
