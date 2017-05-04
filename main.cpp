@@ -10,4 +10,6 @@ int main(int argc, char ** argv)
     
     std::cout << "Your acc number is " << girokonto.getNumber() << std::endl;
     std::cout << "Your bank is " << girokonto.getBankName() << std::endl;
+    
+    return 0;
 }
