@@ -1,0 +1,24 @@
+#ifndef BANKSCONTROLLER_H_
+#define BANKSSCONTROLLER_H_
+#include "bank.h"
+#include "account.h"
+
+#include "Controller.h"
+
+class BanksController : public Controller
+{
+private:
+    static const int menuSize = 4;
+    
+    char menu[menuSize][50] = {
+        "1. Show all banks", 
+        "2. Create new account",
+        "3. Delete account",
+        "4. Previous menu" };
+
+public:
+    void run();
+    void printMenu();
+};
+
+#endif

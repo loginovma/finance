@@ -1,10 +1,12 @@
 #include <string.h>
+#include <iostream>
 #include "account.h"
 
-Account::Account(const char * number, Bank& bankk)
+Account::Account(const char * number, Bank& bank)
 {
     strcpy(accno, number);
-    bank = &bankk;
+    this->bank = &bank;
+    
 }
 
 const char * Account::getNumber()
@@ -16,3 +18,4 @@ const char * Account::getBankName()
 {
     return bank->getName();
 }
+

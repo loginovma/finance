@@ -11,7 +11,7 @@ class Account
     public:
         const char * getNumber();
         const char * getBankName();
-	    Account(const char * number, Bank& bankk);
+	    Account(const char * number, Bank& bank);
 }; 
 
 #endif
