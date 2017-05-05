@@ -9,7 +9,10 @@ class Controller
 {
 public:
     virtual void printMenu(){}
-    virtual Controller * run(int option){}
+    virtual Controller * run(int option)
+	{
+		return this;
+	}
 };
 
 #endif
