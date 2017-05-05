@@ -18,7 +18,8 @@ private:
 
 public:
     void run();
-    void printMenu();
+	Controller * run(int option);
+	void printMenu();
 };
 
 #endif
