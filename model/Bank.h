@@ -1,9 +1,11 @@
 #ifndef BANK_H_
 #define BANK_H_
 
-class Bank: public Model
+#include "Model.h"
+
+class Bank : public Model
 {
-    char* name;
+    const char* name;
     
 public:
     Bank(const char * bankName);
