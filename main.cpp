@@ -8,7 +8,7 @@
 int main(int argc, char ** argv)
 {
     cout << "Welcome to personal finance" << endl;
-    cout << "Please choose your option from the menu:" << endl;
+	cout << "Please choose your option from the menu:" << endl << endl;
 
     StartController *app = new StartController();
     Controller * controller = app;
@@ -25,6 +25,10 @@ int main(int argc, char ** argv)
         
         controller = controller->run(option);
     }
+
+	cout << endl << "Goodbye";
+
+	delete app;
     
     return 0;
 }

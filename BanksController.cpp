@@ -3,14 +3,16 @@
 
 using namespace std;
 
-void BanksController::run()
+Controller * BanksController::run(int option)
 {
     cout << "Hello from BanksController" << endl;
+
+	return this;
 }
 
 void BanksController::printMenu()
-    {
-        for (int i = 0; i < this->menuSize; i ++) {
+{
+    for (int i = 0; i < this->menuSize; i ++) {
         cout << this->menu[i] << endl;
     }
 }

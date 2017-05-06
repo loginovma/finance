@@ -12,13 +12,14 @@ private:
     
     char menu[menuSize][50] = {
         "1. Show all banks", 
-        "2. Create new account",
-        "3. Delete account",
+        "2. Create new bank",
+        "3. Delete bank",
         "4. Previous menu" };
 
 public:
     void run();
-    void printMenu();
+	Controller * run(int option);
+	void printMenu();
 };
 
 #endif
