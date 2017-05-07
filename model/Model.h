@@ -3,6 +3,8 @@
 
 class Model
 {
+public:
+    virtual const char* getName() {};
     
 };
 

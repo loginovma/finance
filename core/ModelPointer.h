@@ -1,6 +1,8 @@
 #ifndef MODELPOINTER_H_
 #define MODELPOINTER_H_
 
+#include "../model/Model.h"
+
 
 class ModelStorage
 {
