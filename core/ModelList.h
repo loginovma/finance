@@ -1,6 +1,8 @@
 #ifndef MODELLIST_H_
 #define MODELLIST_H_
 
+#include "ModelPointer.h"
+
 class ModelNode
 {
 private:
@@ -29,6 +31,7 @@ public:
     int length();
     
     //constructor & destructor
+    ModelList();
     ModelList(ModelPointer object);
     ~ModelList();
     
