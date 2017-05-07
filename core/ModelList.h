@@ -7,17 +7,19 @@ class ModelNode
 {
 private:
     ModelPointer object;
-    ModelNode* next;
-    ModelNode* prev;
     
     //private Copy constructor
-    ModelNode(const ModelNode& node) {};
+    ModelNode(const ModelNode& node);
     
     bool deleteLast();
    
 public:
-    ModelNode(ModelPointer object);
+    ModelNode(ModelPointer& obj);
     ~ModelNode();
+    
+    ModelNode* next;
+    ModelNode* prev;
+    ModelPointer& getNode();
 };
 
 class ModelList
@@ -26,8 +28,8 @@ private:
     ModelNode* head;
     
 public:
-    void add(ModelPointer object);
-    void del(ModelPointer object);
+    void add(ModelPointer& object);
+    //void del(ModelPointer object);
     int length();
     
     //constructor & destructor

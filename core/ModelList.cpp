@@ -1,38 +1,45 @@
 #include "ModelList.h"
+#include <iostream>
 
 bool ModelNode::deleteLast()
 {
     ModelNode* current = this;
+    ModelNode* prev = 0;
     
     while(current->next != 0) {
+        prev = current;
         current = current->next;
     }
     
-    if (current->prev == 0) {
+    if (prev == 0) {
         return false;
     }
     
-    current->prev->next = 0;
     delete current;
+    prev->next = 0;
     
     return true;
     
 }
 
-ModelNode::ModelNode(ModelPointer object)
+ModelNode::ModelNode(ModelPointer& obj) : object(obj)
 {
-    this->object = object;
     this->next = 0;
     this->prev = 0;
 }
 
 ModelNode::~ModelNode()
 {
+    std::cout << "ModelNode destructor start" << std::endl;
     while ( this->deleteLast() );
 }
 
+ModelPointer& ModelNode::getNode()
+{
+    return object;
+}
 
-bool ModelList::deleteLast()
+/*bool ModelList::deleteLast()
 {
     ModelNode* current = this->head;
         
@@ -51,7 +58,7 @@ bool ModelList::deleteLast()
     
     return true;
         
-}
+}*/
 
 ModelList::ModelList()
 {
@@ -65,19 +72,25 @@ ModelList::ModelList(ModelPointer object)
 
 ModelList::~ModelList()
 {
+    std::cout << "ModelList destructor start" << std::endl;
     delete this->head;
 }
 
 //adding object to the end of the list
-void ModelList::add(ModelPointer object)
+void ModelList::add(ModelPointer& object)
 {
+    if ( !this->length() ) {
+        this->head = new ModelNode(object);
+        return;
+    }
+    
     ModelNode* current = this->head;
     
     while(current->next != 0) {
         current = current->next;
     }
     
-    current->next = new ModelNode(object)
+    current->next = new ModelNode(object);
     current->next->prev = current;
 }
 
