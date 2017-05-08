@@ -4,6 +4,8 @@
 #include "Controller.h"
 #include "ModelList.h"
 
+class Controller;
+
 class ControllerStorage
 {
 private:

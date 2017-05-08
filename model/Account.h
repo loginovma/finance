@@ -1,6 +1,6 @@
 #ifndef ACCOUNT_H_
 #define ACCOUNT_H_
-#include "bank.h"
+#include "Bank.h"
 
 class Account: public Model
 {

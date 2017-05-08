@@ -5,18 +5,14 @@ using namespace std;
 
 void StartController::printMenu()
 {
-    /*Bank sberbank("sberbank");
+    for(int i = 0; i < this->menusize; i++) {
+        std::cout << this->menu[i] << std::endl;
+    }
     
-    Account girokonto("1245", sberbank);
+    //std::cout << "menu printed" << std::endl;
     
-    std::cout << "Your acc number is " << girokonto.getNumber() << std::endl;
-    std::cout << "Your bank is " << girokonto.getBankName() << std::endl;*/
-    
-
-        for (int i = 0; i < this->MENUSIZE; i ++) {
-            cout << this->menu[i] << endl;
-        }
 }
+
 
 const char* StartController::getName()
 {
@@ -24,21 +20,13 @@ const char* StartController::getName()
 }
 
 
-Controller * StartController::run(int option)
+Controller * StartController::run(int option, ControllerStorage* cstorage)
 {
-   /* Controller * banks = new BanksController();
-    Controller * accounts = new AccountsController();*/
-            switch (option) {
+     switch (option) {
             case 1:
-                std::cout << "1" << std::endl;
-                return this;
-                /*return banks;*/
+                return cstorage->getController("banks");
                 break;
             case 2:
-                std::cout << "2" << std::endl;
-                return this;
-                //return accounts;
-                break;
             default:
                 std::cout << "Incorrect" << std::endl;
                 return this;
@@ -46,6 +34,15 @@ Controller * StartController::run(int option)
         }
 }
 
-StartController::StartController(ModelList* list) {
+StartController::StartController() {
     this->name = "start";
+    this->loadMenu();
+}
+
+void StartController::loadMenu()
+{
+   this->menu[0] = "1. Banks";
+   this->menu[1] = "2. Accounts";
+   
+   this->menusize = 2;
 }

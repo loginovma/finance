@@ -5,4 +5,4 @@ debug:
 	g++ debug.cpp model/Bank.cpp core/ModelPointer.cpp core/ModelList.cpp core/ControllerStorage.cpp core/Controller.cpp core/StartController.cpp -std=c++11 -o debug/program
 	
 release:
-	g++ release.cpp model/Bank.cpp core/ModelPointer.cpp core/ModelList.cpp core/ControllerStorage.cpp core/Controller.cpp core/StartController.cpp -std=c++11 -o debug/program	
+	g++ release.cpp model/Bank.cpp core/ModelPointer.cpp core/ModelList.cpp core/ControllerStorage.cpp core/Controller.cpp core/StartController.cpp core/BanksController.cpp -std=c++11 -o debug/program	

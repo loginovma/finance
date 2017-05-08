@@ -7,11 +7,12 @@
 class StartController : public Controller
 {
 public:
+    void loadMenu();
     void printMenu();
     const char* getName();
-    Controller * run(int option);
+    Controller * run(int option, ControllerStorage* cstorage);
     
-    StartController(ModelList* list = 0);
+    StartController();
 };
 
 #endif

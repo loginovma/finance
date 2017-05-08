@@ -20,6 +20,8 @@ public:
     void run();
 	Controller * run(int option);
 	void printMenu();
+	
+	BanksController(ModelList* list);
 };
 
 #endif

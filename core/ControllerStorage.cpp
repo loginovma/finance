@@ -4,7 +4,7 @@
 
 Controller* ControllerStorage::getController(const char* name)
 {
-    for (int i = 0; i < this->MAX; i++) 
+    for (int i = 0; i < this->counter; i++) 
     {
         if (this->controllers[i] == 0) {
             break;
@@ -21,7 +21,9 @@ Controller* ControllerStorage::getController(const char* name)
 void ControllerStorage::storeController(Controller* controller)
 {
     if (this->counter < this->MAX) {
+        
         this->controllers[counter] = controller;
+        this->counter++;
         
         return;
     }
