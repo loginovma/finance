@@ -19,9 +19,35 @@ const char* AccountsController::getName()
 
 Controller * AccountsController::run(int option, ControllerStorage* cstorage)
 {
-   cout << option << endl;
-   return this;
+   switch (option) {
+            case 1:
+                this->createAccount();
+                return this;
+                break;
+            case 2:
+                this->deleteAccount();
+                return this;
+                break;
+            case 3:
+                return cstorage->getController("start");
+                break;
+            default:
+                std::cout << "Incorrect" << std::endl;
+                return this;
+                break;
+        }
 }
+
+void AccountsController::createAccount()
+{
+    cout << "Creating Account..." << endl;
+}
+
+void AccountsController::deleteAccount()
+{
+    cout << "Deleting Account..." << endl;
+}
+
 
 AccountsController::AccountsController(ModelList* list) {
     this->list = list;
@@ -33,6 +59,7 @@ void AccountsController::loadMenu()
 {
    this->menu[0] = "1. Add new Account";
    this->menu[1] = "2. Delete Account";
+   this->menu[2] = "3. Back to main menu";
    
-   this->menusize = 2;
+   this->menusize = 3;
 }

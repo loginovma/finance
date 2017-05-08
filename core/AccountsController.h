@@ -8,6 +8,10 @@
 
 class AccountsController : public Controller
 {
+private:
+    void createAccount();
+    void deleteAccount();
+    
 public:
     void loadMenu();
     void printMenu();
