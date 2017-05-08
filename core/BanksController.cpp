@@ -19,8 +19,23 @@ const char* BanksController::getName()
 
 Controller * BanksController::run(int option, ControllerStorage* cstorage)
 {
-   cout << option << endl;
-   return this;
+   switch (option) {
+            case 1:
+                this->createBank();
+                return this;
+                break;
+            case 2:
+                this->deleteBank();
+                return this;
+                break;
+            case 3:
+                return cstorage->getController("start");
+                break;
+            default:
+                std::cout << "Incorrect" << std::endl;
+                return this;
+                break;
+        }
 }
 
 BanksController::BanksController(ModelList* list) {
@@ -29,10 +44,21 @@ BanksController::BanksController(ModelList* list) {
     this->loadMenu();
 }
 
+void BanksController::createBank()
+{
+    cout << "Creating bank.." << endl;
+}
+
+void BanksController::deleteBank()
+{
+    cout << "Deleting bank.." << endl;
+}
+
 void BanksController::loadMenu()
 {
    this->menu[0] = "1. Add new Bank";
    this->menu[1] = "2. Delete Bank";
+   this->menu[2] = "3. Back to main menu";
    
-   this->menusize = 2;
+   this->menusize = 3;
 }

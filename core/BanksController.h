@@ -8,6 +8,10 @@
 
 class BanksController : public Controller
 {
+private:
+    void createBank();
+    void deleteBank();
+
 public:
     void loadMenu();
     void printMenu();
