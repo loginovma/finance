@@ -11,6 +11,7 @@ class AccountsController : public Controller
 private:
     void createAccount();
     void deleteAccount();
+    void printList();
     
 public:
     void loadMenu();

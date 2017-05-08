@@ -5,6 +5,8 @@ class Model
 {
 public:
     virtual const char* getName() {};
+    virtual const char* getNumber() {};
+    virtual const char* getBankName() {};
     
 };
 

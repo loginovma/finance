@@ -22,6 +22,7 @@ int main(int argc, char ** argv)
     ModelPointer alfa = new Bank("alfabank");
     
     ModelPointer salary = new Account("40810000000001234567", sberbank);
+    ModelPointer savings = new Account("40810000000001234568", alfa);
     
     ModelList banks;
     banks.add(sberbank);
@@ -29,6 +30,7 @@ int main(int argc, char ** argv)
     
     ModelList accounts;
     accounts.add(salary);
+    accounts.add(savings);
 	
 	//creating and filling controller storage
 	ControllerStorage* cstorage = new ControllerStorage();

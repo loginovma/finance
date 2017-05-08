@@ -5,9 +5,26 @@ using namespace std;
 
 void AccountsController::printMenu()
 {
+    this->printList();
+    
     for(int i = 0; i < this->menusize; i++) {
         std::cout << this->menu[i] << std::endl;
     }
+}
+
+void AccountsController::printList()
+{
+    cout << "You have following accounts:" << endl;
+    ModelNode* current = this->list->getHead();
+    
+    while(current != 0) {
+        cout << current->getNode().ptr()->getNumber() << ' '
+             << current->getNode().ptr()->getBankName() << endl;
+             
+        current = current->next;
+    }
+    
+    cout << endl;
 }
 
 
