@@ -104,3 +104,8 @@ int ModelList::length()
     
     return counter;
 }
+
+ModelNode* ModelList::getHead()
+{
+    return this->head;
+}

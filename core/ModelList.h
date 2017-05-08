@@ -30,6 +30,7 @@ private:
 public:
     void add(ModelPointer& object);
     //void del(ModelPointer object);
+    ModelNode* getHead();
     int length();
     
     //constructor & destructor
