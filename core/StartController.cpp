@@ -27,6 +27,8 @@ Controller * StartController::run(int option, ControllerStorage* cstorage)
                 return cstorage->getController("banks");
                 break;
             case 2:
+                return cstorage->getController("accounts");
+                break;
             default:
                 std::cout << "Incorrect" << std::endl;
                 return this;
