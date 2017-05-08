@@ -1,16 +1,27 @@
 #ifndef CONTROLLER_H_
 #define CONTROLLER_H_
 
+#include "ModelList.h"
+
 class Controller
 {
-private:
-    char* menu[10];
 public:
-    void printMenu();
-    virtual Controller * run(int option)
-	{
-		return this;
-	}
+    static const int MENUSIZE = 10;
+    
+protected:
+    ModelList* list;
+    const char* name;
+    char* menu[MENUSIZE];
+    
+public:
+    virtual const char * getName();
+    
+    virtual void loadMenu();
+    void addList(ModelList& list);
+    
+    virtual void printMenu();
+    virtual void printList();
+    virtual Controller * run(int option) = 0;
 };
 
 #endif
