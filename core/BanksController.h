@@ -11,6 +11,8 @@ class BanksController : public Controller
 private:
     void createBank();
     void deleteBank();
+    
+    void printList();
 
 public:
     void loadMenu();

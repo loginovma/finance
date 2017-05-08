@@ -5,10 +5,27 @@ using namespace std;
 
 void BanksController::printMenu()
 {
+    this->printList();
+    
     for(int i = 0; i < this->menusize; i++) {
         std::cout << this->menu[i] << std::endl;
     }
 }
+
+void BanksController::printList()
+{
+    cout << "You have contracts in following banks:" << endl;
+    ModelNode* current = this->list->getHead();
+    
+    while(current != 0) {
+        cout << current->getNode().ptr()->getName() << endl;
+             
+        current = current->next;
+    }
+    
+    cout << endl;
+}
+
 
 
 const char* BanksController::getName()
