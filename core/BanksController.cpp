@@ -43,7 +43,7 @@ Controller * BanksController::run(int option, ControllerStorage* cstorage)
                 return this;
                 break;
             case 2:
-                this->deleteBank();
+                this->deleteBank(cstorage);
                 return this;
                 break;
             case 3:
@@ -79,7 +79,7 @@ void BanksController::createBank()
     
 }
 
-void BanksController::deleteBank()
+void BanksController::deleteBank(ControllerStorage* cstorage)
 {
     cout << "Deleting bank.." << endl
          << "Enter bank name:" << endl;
@@ -87,6 +87,13 @@ void BanksController::deleteBank()
     char input[21];
 
     fscanf(stdin, "%20s", input);
+    
+    AccountsController* accountsC = (AccountsController*) cstorage->getController("accounts");
+    
+    if (accountsC->bankSearch(input)) {
+        cout << "Delete Accounts in this bank first" << endl;
+        return;
+    }
     
     this->list->del(input);
 }

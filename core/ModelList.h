@@ -26,7 +26,7 @@ class ModelList
 {
 private:
     ModelNode* head;
-     bool deleteLast();
+    bool deleteLast();
     
 public:
     void add(ModelPointer& object);

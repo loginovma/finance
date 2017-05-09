@@ -14,6 +14,7 @@ private:
     void printList();
     
 public:
+    bool bankSearch(const char* bankName);
     void loadMenu();
     void printMenu();
     const char* getName();

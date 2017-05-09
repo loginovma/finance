@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 #include "AccountsController.h"
 
 using namespace std;
@@ -79,4 +80,23 @@ void AccountsController::loadMenu()
    this->menu[2] = "3. Back to main menu";
    
    this->menusize = 3;
+}
+
+bool AccountsController::bankSearch(const char* bankName)
+{
+    ModelNode* current = this->list->getHead();
+    
+    while(1) {
+        if (!strcmp(current->getNode().ptr()->getBankName(), bankName) ) {
+            return true;
+        }
+        
+        if(current->next == 0) {
+            break;
+        }
+        
+        current = current->next;
+    }
+    
+    return false;
 }

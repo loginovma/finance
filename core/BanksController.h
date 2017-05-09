@@ -3,6 +3,7 @@
 
 #include "../model/Bank.h"
 #include "../model/Account.h"
+#include "AccountsController.h"
 
 #include "Controller.h"
 
@@ -10,7 +11,7 @@ class BanksController : public Controller
 {
 private:
     void createBank();
-    void deleteBank();
+    void deleteBank(ControllerStorage* cstorage);
     
     void printList();
 
