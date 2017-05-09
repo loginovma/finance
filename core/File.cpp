@@ -100,7 +100,31 @@ void File::storeBanks(ModelList& list)
     fclose(f);
 }
 
-void File::storeAccs(ModelList& accounts, ModelList& banks)
+void File::storeAccs(ModelList& accounts)
 {
+    FILE* f;
+    ModelNode* current = accounts.getHead();
+    string path;
     
+    
+    while(1) {
+        path = "data/" + (string) current->getNode().ptr()->getBankName();
+    
+        cout << path;
+        f = fopen(&path.at(0) , "w");
+        
+        if (f == 0) {
+            cout << " file writing error" << endl;
+            break;
+        }
+        
+        fprintf(f, "%s\n", current->getNode().ptr()->getNumber());
+        if (current->next == 0) {
+            break;
+        }
+    
+        current = current->next;
+     
+        fclose(f);
+    }
 }

@@ -64,6 +64,7 @@ int main(int argc, char ** argv)
     }
     
     orm->storeBanks(banks);
+    orm->storeAccs(accounts);
 
 	cout << endl << "Goodbye" << endl;
 	
