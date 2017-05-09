@@ -44,6 +44,13 @@ void File::loadAccs(ModelList& accounts, ModelList& banks)
         
         if (f == 0) {
             cout << " file not found" << endl;
+            if (current->next == 0) {
+            break;
+        }
+    
+        current = current->next;
+        continue;
+            
         } else {
             cout << " file loaded" << endl;
         }
@@ -71,7 +78,26 @@ void File::loadAccs(ModelList& accounts, ModelList& banks)
 
 void File::storeBanks(ModelList& list)
 {
+    FILE* f = fopen("data/banks", "w");
+    if (f == 0) {
+            cout << "data/banks file not found" << endl;
+            return;
+        } else {
+            cout << "data/banks file loaded" << endl;
+        }
+        
+    ModelNode* current = list.getHead();
+    while(1) {
+        fprintf(f, "%s\n", current->getNode().ptr()->getName());
+        
+        if (current->next == 0) {
+            break;
+        }
     
+        current = current->next;
+    }
+    
+    fclose(f);
 }
 
 void File::storeAccs(ModelList& accounts, ModelList& banks)

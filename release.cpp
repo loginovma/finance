@@ -62,6 +62,8 @@ int main(int argc, char ** argv)
         
         controller = controller->run(option, cstorage);
     }
+    
+    orm->storeBanks(banks);
 
 	cout << endl << "Goodbye" << endl;
 	
