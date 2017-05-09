@@ -33,6 +33,9 @@ Model* ModelStorage::getpObject()
     return this->pObj;
 }
 
+ModelPointer::ModelPointer() {
+    
+}
 
 ModelPointer::ModelPointer(const ModelPointer &p)
 {

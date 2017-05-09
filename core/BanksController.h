@@ -16,6 +16,7 @@ private:
     void printList();
 
 public:
+    bool searchBank(const char* bankName, ModelPointer& bank);
     void loadMenu();
     void printMenu();
     const char* getName();

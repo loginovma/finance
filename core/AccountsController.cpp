@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include "AccountsController.h"
+#include "BanksController.h"
 
 using namespace std;
 
@@ -39,7 +40,7 @@ Controller * AccountsController::run(int option, ControllerStorage* cstorage)
 {
    switch (option) {
             case 1:
-                this->createAccount();
+                this->createAccount(cstorage);
                 return this;
                 break;
             case 2:
@@ -56,9 +57,31 @@ Controller * AccountsController::run(int option, ControllerStorage* cstorage)
         }
 }
 
-void AccountsController::createAccount()
+void AccountsController::createAccount(ControllerStorage* cstorage)
 {
-    cout << "Creating Account..." << endl;
+    cout << "Creating Account..." << endl
+         << "Enter Bank name:" << endl;
+         
+    char bankName[21];
+
+    fscanf(stdin, "%20s", bankName);
+    
+    BanksController* banksC = (BanksController*) cstorage->getController("banks");
+    
+    ModelPointer bank;
+    if (!banksC->searchBank(bankName, bank)) {
+        return;
+    }
+    
+    cout << "Enter account number" << endl;
+    
+    char accno[21];
+
+    fscanf(stdin, "%20s", accno);
+    
+    ModelPointer temp = new Account(accno, bank);
+    
+    this->list->add(temp);
 }
 
 void AccountsController::deleteAccount()

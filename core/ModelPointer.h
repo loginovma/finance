@@ -29,6 +29,7 @@ private:
     
 public:
     ModelPointer(Model* pObj);
+    ModelPointer();
     ~ModelPointer();
     Model* ptr() const;
     

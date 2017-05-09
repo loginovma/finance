@@ -9,7 +9,7 @@
 class AccountsController : public Controller
 {
 private:
-    void createAccount();
+    void createAccount(ControllerStorage* cstorage);
     void deleteAccount();
     void printList();
     

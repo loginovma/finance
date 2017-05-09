@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdio.h>
+#include <string.h>
+
 #include "BanksController.h"
 
 using namespace std;
@@ -105,4 +107,28 @@ void BanksController::loadMenu()
    this->menu[2] = "3. Back to main menu";
    
    this->menusize = 3;
+}
+
+bool BanksController::searchBank(const char* bankName, ModelPointer& bank)
+{
+    ModelNode* current = this->list->getHead();
+    
+    bool found = false;
+    
+    while(1) {
+        if( !strcmp(current->getNode().ptr()->getName(), bankName) ) {
+            cout << "Bank has been found" << endl;
+            bank = current->getNode();
+            found = true;
+            break;
+        }
+        
+        if (current->next == 0) {
+            cout << "Bank not found" << endl;
+            break;
+        }
+        current = current->next;
+    }
+    
+    return found;
 }
