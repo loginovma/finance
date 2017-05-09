@@ -8,6 +8,7 @@
 #include "core/StartController.h"
 #include "core/BanksController.h"
 #include "core/AccountsController.h"
+#include "core/File.h"
 
 using namespace std;
 
@@ -17,20 +18,21 @@ int main(int argc, char ** argv)
 	cout << "Please choose your option from the menu:" << endl << endl;
 	
 	//loading models
-	
+	Orm* orm = new File();
+	/*
 	ModelPointer sberbank( new Bank("Sberbank") );
-    ModelPointer alfa = new Bank("alfabank");
-    
+    ModelPointer alfa = new Bank("alfabank");*/
+    /*
     ModelPointer salary = new Account("40810000000001234567", sberbank);
     ModelPointer savings = new Account("40810000000001234568", alfa);
-    
+    */
     ModelList banks;
-    banks.add(sberbank);
-    banks.add(alfa);
+    orm->loadBanks(banks);
+    
     
     ModelList accounts;
-    accounts.add(salary);
-    accounts.add(savings);
+    /*accounts.add(salary);
+    accounts.add(savings);*/
 	
 	//creating and filling controller storage
 	ControllerStorage* cstorage = new ControllerStorage();
@@ -65,5 +67,6 @@ int main(int argc, char ** argv)
 	
 	//deleting controller storage
 	delete cstorage;
+	delete orm;
 	return 0;
 }

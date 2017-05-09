@@ -76,8 +76,10 @@ ModelList::ModelList(ModelPointer object)
 ModelList::~ModelList()
 {
     std::cout << "ModelList destructor start" << std::endl;
-    while( this->deleteLast() );
-    delete this->head;
+    if (this->head) {
+        while( this->deleteLast() );
+        delete this->head;
+    }
 }
 
 //adding object to the end of the list
