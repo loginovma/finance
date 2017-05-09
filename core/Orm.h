@@ -7,7 +7,9 @@ class Orm
 {
 public:
     virtual void loadBanks(ModelList& list) = 0;
-    //virtual void loadAccs(ModelList& list);
+    virtual void loadAccs(ModelList& accounts, ModelList& banks) = 0;
+    virtual void storeBanks(ModelList& list) = 0;
+    virtual void storeAccs(ModelList& accounts, ModelList& banks) = 0;
 };
 
 #endif

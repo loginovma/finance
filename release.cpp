@@ -31,6 +31,7 @@ int main(int argc, char ** argv)
     
     
     ModelList accounts;
+    orm->loadAccs(accounts, banks);
     /*accounts.add(salary);
     accounts.add(savings);*/
 	

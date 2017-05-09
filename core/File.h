@@ -7,7 +7,9 @@ class File : public Orm
 {
 public:
     void loadBanks(ModelList& list);
-    //void loadAccs(ModelList& list);
+    void loadAccs(ModelList& list, ModelList& banks);
+    void storeBanks(ModelList& list);
+    void storeAccs(ModelList& accounts, ModelList& banks);
 };
 
 #endif

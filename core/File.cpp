@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <iostream>
+#include <string>
 
 #include "File.h"
 #include "ModelPointer.h"
 #include "../model/Bank.h"
+#include "../model/Account.h"
 
 using namespace std;
 
 void File::loadBanks(ModelList& banks)
 {
-    FILE* f = fopen("data/banks.csv", "r");
+    FILE* f = fopen("data/banks", "r");
     if (f == 0) {
-            cout << "banks.csv not found" << endl;
+            cout << "data/banks file not found" << endl;
         } else {
-            cout << "file loaded" << endl;
+            cout << "data/banks file loaded" << endl;
         }
         
     char name[21];
@@ -25,4 +27,54 @@ void File::loadBanks(ModelList& banks)
     }
         
     fclose(f);
+}
+
+void File::loadAccs(ModelList& accounts, ModelList& banks)
+{
+    FILE* f;
+    ModelNode* current = banks.getHead();
+    string path;
+    
+    
+    while(1) {
+        path = "data/" + (string) current->getNode().ptr()->getName();
+    
+        cout << path;
+        f = fopen(&path.at(0) , "r");
+        
+        if (f == 0) {
+            cout << " file not found" << endl;
+        } else {
+            cout << " file loaded" << endl;
+        }
+        
+        char name[21];
+        ModelPointer temp;
+    
+        ModelPointer bank = current->getNode().ptr();
+        
+        while ( fscanf(f, "%20s", name) != EOF ) {
+        temp = new Account(name, bank);
+        accounts.add(temp);
+        }
+    
+        if (current->next == 0) {
+            break;
+        }
+    
+        current = current->next;
+     
+        fclose(f);
+    }
+   
+}
+
+void File::storeBanks(ModelList& list)
+{
+    
+}
+
+void File::storeAccs(ModelList& accounts, ModelList& banks)
+{
+    
 }
