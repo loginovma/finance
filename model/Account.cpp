@@ -17,3 +17,8 @@ const char* Account::getNumber()
 {
     return this->accno;
 }
+
+const char* Account::getName()
+{
+    return this->getNumber();
+}

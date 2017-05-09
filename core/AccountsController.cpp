@@ -86,7 +86,14 @@ void AccountsController::createAccount(ControllerStorage* cstorage)
 
 void AccountsController::deleteAccount()
 {
-    cout << "Deleting Account..." << endl;
+    cout << "Deleting Account..." << endl
+         << "Enter acc nubmer:" << endl;
+         
+    char input[21];
+
+    fscanf(stdin, "%20s", input);
+    
+    this->list->del(input);
 }
 
 

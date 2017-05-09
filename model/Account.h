@@ -10,8 +10,9 @@ class Account: public Model
     	ModelPointer bank;
 	
     public:
-        const char * getNumber();
-        const char * getBankName();
+        const char* getNumber();
+        const char* getName();
+        const char* getBankName();
 	    Account(const char * number, ModelPointer& bank);
 }; 
 
