@@ -5,7 +5,7 @@
 
 class Bank : public Model
 {
-    const char* name;
+    char* name;
     
 public:
     Bank(const char * bankName);

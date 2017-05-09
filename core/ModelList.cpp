@@ -1,7 +1,10 @@
 #include "ModelList.h"
 #include <iostream>
+#include <string.h>
 
-bool ModelNode::deleteLast()
+using namespace std;
+
+/*bool ModelNode::deleteLast()
 {
     ModelNode* current = this;
     ModelNode* prev = 0;
@@ -20,7 +23,7 @@ bool ModelNode::deleteLast()
     
     return true;
     
-}
+}*/
 
 ModelNode::ModelNode(ModelPointer& obj) : object(obj)
 {
@@ -31,7 +34,7 @@ ModelNode::ModelNode(ModelPointer& obj) : object(obj)
 ModelNode::~ModelNode()
 {
     std::cout << "ModelNode destructor start" << std::endl;
-    while ( this->deleteLast() );
+    //delete this;
 }
 
 ModelPointer& ModelNode::getNode()
@@ -39,7 +42,7 @@ ModelPointer& ModelNode::getNode()
     return object;
 }
 
-/*bool ModelList::deleteLast()
+bool ModelList::deleteLast()
 {
     ModelNode* current = this->head;
         
@@ -58,7 +61,7 @@ ModelPointer& ModelNode::getNode()
     
     return true;
         
-}*/
+}
 
 ModelList::ModelList()
 {
@@ -73,6 +76,7 @@ ModelList::ModelList(ModelPointer object)
 ModelList::~ModelList()
 {
     std::cout << "ModelList destructor start" << std::endl;
+    while( this->deleteLast() );
     delete this->head;
 }
 
@@ -92,6 +96,54 @@ void ModelList::add(ModelPointer& object)
     
     current->next = new ModelNode(object);
     current->next->prev = current;
+}
+
+void ModelList::del(const char* name)
+{
+    ModelNode* current = this->head;
+    
+    bool found = false;
+    
+    while(1) {
+        if( !strcmp(current->getNode().ptr()->getName(), name) ) {
+            cout << "Record has been found" << endl;
+            found = true;
+            break;
+        }
+        
+        if (current->next == 0) {
+            cout << "Record not found" << endl;
+            break;
+        }
+        current = current->next;
+    }
+    
+    if (!found) {
+        return;
+    }
+    
+    char confirm = 'n';
+    cout << "Confirm deleting " << name << endl;
+    
+    //cin.ignore();
+    cin >> confirm;
+        
+    if (confirm != 'y') {
+        cout << "Deletion aborted" << endl;
+        return;    
+    }
+    
+    if (current->prev != 0) {
+        current->prev->next = current->next;
+    } else {
+        this->head = current->next;
+    }
+    
+    if (current->next != 0) {
+        current->next->prev = current->prev;
+    }
+    
+    delete current;
 }
 
 int ModelList::length()

@@ -11,7 +11,7 @@ private:
     //private Copy constructor
     ModelNode(const ModelNode& node);
     
-    bool deleteLast();
+    
    
 public:
     ModelNode(ModelPointer& obj);
@@ -26,10 +26,11 @@ class ModelList
 {
 private:
     ModelNode* head;
+     bool deleteLast();
     
 public:
     void add(ModelPointer& object);
-    //void del(ModelPointer object);
+    void del(const char* name);
     ModelNode* getHead();
     int length();
     

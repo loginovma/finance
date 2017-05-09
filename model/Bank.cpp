@@ -1,8 +1,10 @@
 #include "Bank.h"
+#include <string.h>
 
 Bank::Bank(const char * name)
 {
-    this->name = name;
+    this->name = new char[sizeof(name)];
+    strcpy(this->name, name);
 }
 
 const char* Bank::getName()

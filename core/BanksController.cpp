@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include "BanksController.h"
 
 using namespace std;
@@ -63,12 +64,31 @@ BanksController::BanksController(ModelList* list) {
 
 void BanksController::createBank()
 {
-    cout << "Creating bank.." << endl;
+    cout << "Creating bank.." << endl
+         << "Enter bank name:" << endl;
+         
+    char input[21];
+
+    fscanf(stdin, "%20s", input);
+
+    
+    ModelPointer temp = new Bank(input);
+    
+    this->list->add(temp);
+
+    
 }
 
 void BanksController::deleteBank()
 {
-    cout << "Deleting bank.." << endl;
+    cout << "Deleting bank.." << endl
+         << "Enter bank name:" << endl;
+         
+    char input[21];
+
+    fscanf(stdin, "%20s", input);
+    
+    this->list->del(input);
 }
 
 void BanksController::loadMenu()
