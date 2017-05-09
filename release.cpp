@@ -48,8 +48,6 @@ int main(int argc, char ** argv)
 	//main program cycle
 	int option = 0;
 	Controller* controller = cstorage->getController("start");
-	
-	cout << cstorage->getController("start")->getName() << endl;
     
     while (1) {
         controller->printMenu();

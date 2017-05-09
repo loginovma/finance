@@ -108,8 +108,9 @@ void AccountsController::loadMenu()
    this->menu[0] = "1. Add new Account";
    this->menu[1] = "2. Delete Account";
    this->menu[2] = "3. Back to main menu";
+   this->menu[3] = "0. Exit";
    
-   this->menusize = 3;
+   this->menusize = 4;
 }
 
 bool AccountsController::bankSearch(const char* bankName)

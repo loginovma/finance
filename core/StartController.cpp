@@ -45,6 +45,7 @@ void StartController::loadMenu()
 {
    this->menu[0] = "1. Banks";
    this->menu[1] = "2. Accounts";
+   this->menu[2] = "0. Exit";
    
-   this->menusize = 2;
+   this->menusize = 3;
 }

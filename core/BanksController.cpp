@@ -105,8 +105,9 @@ void BanksController::loadMenu()
    this->menu[0] = "1. Add new Bank";
    this->menu[1] = "2. Delete Bank";
    this->menu[2] = "3. Back to main menu";
+   this->menu[3] = "0. Exit";
    
-   this->menusize = 3;
+   this->menusize = 4;
 }
 
 bool BanksController::searchBank(const char* bankName, ModelPointer& bank)
